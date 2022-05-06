@@ -1,0 +1,69 @@
+<service id="draftgen">
+	<form action="http://localhost:8080/" method="post" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Fill with your data</legend>
+
+			<label for="subject" class="draftgen input_label">Email Subject</label>
+			<input id="subject" name="subject" class="draftgen line_input" type="text">
+
+			<label for="template" class="draftgen input_label">
+				Email Template
+			</label>
+			<textarea id="template" name="template" rows="10" 
+				placeholder="Paste your template here" ></textarea>
+			
+			<label class="draftgen input_section_header">
+				Template placeholders
+			</label>
+			<label for="start_delim" class="draftgen input_label">start delimiter</label>
+			<input id="start_delim" name="start_delim" class="draftgen short_input" type="text" value="{" maxlength="3">
+			<label for="end_delim" class="draftgen input_label">end delimiter</label>
+			<input id="end_delim" name="end_delim" class="draftgen short_input" type="text" value="}" maxlength="3">
+			<br>
+
+			<label class="draftgen input_section_header">Data</label>
+			<input id="data_file" name="data_file" type="file">
+			
+			<label for="user-delimiter" class="draftgen input_section_header">
+				CSV delimiter
+				<span class="draftgen note">
+					if the field is left empty the csv separator will be automatically detected (not recommended)
+				</span>
+			</label>
+			<input id="data_delim" name="data_delim" class="draftgen short_input" type="text" value="" maxlength="3">
+
+			<input type="submit">
+		</fieldset>
+	</form>
+	<style>
+		#draftgen{
+			font-family: sans-serif;
+		}
+		textarea#template{
+			width:100%;
+		}
+		.draftgen.input_section_header{
+			display: block;
+			padding-top: 0.4em;
+			
+			font-size: medium;
+		}
+		.draftgen.input_label{			
+			font-size: small;
+		}
+		.draftgen.short_input{
+			max-width: 3em;
+			
+			font-family: monospace;
+		}
+		.draftgen.line_input{
+			width: 100%;
+		}
+		span.draftgen.note{
+			display: block;
+
+			font-size: small;
+			color: gray;
+		}
+	</style>
+</service>
